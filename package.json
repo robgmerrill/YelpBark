@@ -11,11 +11,12 @@
     "debug": "~2.2.0",
     "express": "~4.13.1",
     "jade": "~1.11.0",
+    "mongoose": "~3.8.20",
     "morgan": "~1.6.1",
     "serve-favicon": "~2.3.0"
   },
   "engines": {
-    "node": "~4.2.3", 
+    "node": "~4.2.3",
     "npm": "~2.14.7"
   }
 }
