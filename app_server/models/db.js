@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var gracefulShutdown;
 var dbURI = 'mongodb://localhost/yelp_bark';
 if (process.env.NODE_ENV === 'production') {
-  dbURI = process.env.MONGOLAB_URI;
+  dbURI = 'mongodb://heroku_bx2q9dp4:psbungivdrjqge50oo2kjfkn2o@ds019048.mlab.com:19048/heroku_bx2q9dp4';
 }
 mongoose.connect(dbURI);
 
