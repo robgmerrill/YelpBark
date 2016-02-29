@@ -9,3 +9,15 @@ var sendJsonResponse = function(res, status, content) {
 module.exports.reviewsCreate = function(req, res) {
   sendJSONResponse(res, 200, {"status": "success"});
 };
+
+module.exports.reviewsReadOne = function(req, res) {
+  sendJSONResponse(res, 200, {"status": "success"});
+};
+
+module.exports.reviewsUpdateOne = function(req, res) {
+  sendJSONResponse(res, 200, {"status": "success"});
+};
+
+module.exports.reviewsDeleteOne = function(req, res) {
+  sendJSONResponse(res, 200, {"status": "success"});
+};
