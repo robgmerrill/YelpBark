@@ -15,25 +15,6 @@ var renderHomepage = function(req, res, responseBody) {
       },
       sidebar: "Looking for a place to bring your four legged friend? We have found the place for you! Join in and help others find great places for their four legged friends!",
       locations: responseBody
-      // locations: [{
-      //   name: 'Fremont Brewery',
-      //   address: '125 High Street, Reading, RG6 1PS', 
-      //   rating: 5,
-      //   facilities: ['Indoor', 'Outdoor', 'Water Bowl', 'Treats'],
-      //   distance: '100m'
-      // }, {
-      //   name: 'Seward Park',
-      //   address: '125 High Street, Reading, RG6 1PS', 
-      //   rating: 5,
-      //   facilities: ['Outdoor', 'Walk'],
-      //   distance: '100m'
-      // }, {
-      //   name: 'Marymoore Park',
-      //   address: '125 High Street, Reading, RG6 1PS', 
-      //   rating: 5,
-      //   facilities: ['Outdoor', 'Walk', 'Dog Park'],
-      //   distance: '100m'
-      // }]
     });
   };
 
