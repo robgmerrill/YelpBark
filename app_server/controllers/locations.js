@@ -3,7 +3,7 @@ var apiOptions = {
   server: "http://localhost:3000"
 };
 if (process.env.NODE_ENV === 'production') {
-  apiOptions.server = "https://shrouded-badlands-46157.herokuapp.com/"
+  apiOptions.server = "https://shrouded-badlands-46157.herokuapp.com/";
 }
 
 var renderHomepage = function(req, res, responseBody) {
