@@ -18,7 +18,7 @@ block content
             small {{ "location.rating" }}
             //- small
             //-   rating-stars(rating="location.rating")
-            span.badge.pull-right.badge-default {{ location.distance }}
+            span.badge.pull-right.badge-default {{ location.distance | formatDistance }}
           p.address {{ location.address }}
           p
             span.label.label-warning.label-facility(ng-repeat="facility in location.facilities")

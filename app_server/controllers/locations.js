@@ -6,25 +6,25 @@ if (process.env.NODE_ENV === 'production') {
   apiOptions.server = "https://shrouded-badlands-46157.herokuapp.com/"
 }
 
-var _isNumeric = function (n) {
-  return !isNaN(parseFloat(n)) && isFinite(n);
-};
+// var _isNumeric = function (n) {
+//   return !isNaN(parseFloat(n)) && isFinite(n);
+// };
 
-var _formatDistance = function (distance) {
-  var numDistance, unit;
-  if (distance && _isNumeric(distance)) {
-    if (distance > 1) {
-      numDistance = parseFloat(distance).toFixed(1);
-      unit = 'km';
-    } else {
-      numDistance = parseInt(distance * 1000,10);
-      unit = 'm';
-    }
-    return numDistance + unit;
-  } else {
-    return "?";
-  }
-};
+// var _formatDistance = function (distance) {
+//   var numDistance, unit;
+//   if (distance && _isNumeric(distance)) {
+//     if (distance > 1) {
+//       numDistance = parseFloat(distance).toFixed(1);
+//       unit = 'km';
+//     } else {
+//       numDistance = parseInt(distance * 1000,10);
+//       unit = 'm';
+//     }
+//     return numDistance + unit;
+//   } else {
+//     return "?";
+//   }
+// };
 
 var _showError = function (req, res, status) {
   var title, content;
