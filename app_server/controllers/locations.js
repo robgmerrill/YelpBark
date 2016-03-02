@@ -45,55 +45,20 @@ var _showError = function (req, res, status) {
   });
 };
 
-var renderHomepage = function(req, res, responseBody) {
-  var message; 
-  if (!(responseBody instanceof Array)) {
-    message = 'API lookup error';
-    responseBody = [];
-  } else {
-    if (!responseBody.length) {
-      message = "No places found nearby"
-    }
-  }
+var renderHomepage = function(req, res) {
   res.render('locations-list', { 
       title: 'YelpBark - find great places to bring your four legged friends!', 
       pageHeader: {
         title: 'YelpBark',
         strapline: 'Find great places to bring your four legged friends!'
       },
-      sidebar: "Looking for a place to bring your four legged friend? We have found the place for you! Join in and help others find great places for their four legged friends!",
-      locations: responseBody,
-      message: message
+      sidebar: "Looking for a place to bring your four legged friend? We have found the place for you! Join in and help others find great places for their four legged friends!"
     });
   };
 
-/* GET home page */
-module.exports.homelist = function(req, res) {
-  var requestOptions, path;
-  path = '/api/locations';
-  requestOptions = {
-    url: apiOptions.server + path,
-    method: "GET",
-    json: {},
-    qs: {
-      lng: -0.9690884, 
-      lat: 51.455041,
-      maxDistance: 20
-    }
-  };
-  request (
-    requestOptions,
-    function(err, response, body) {
-      var i, data;
-      data = body;
-      if (response.statusCode === 2000 && data.length) {
-      for (i = 0; i < data.length; i++) {
-        data[i].distance = _formatDistance(data[i].distance);
-      }
-    }
-      renderHomepage(req, res, data);
-    }
-  );
+/* GET 'home' page */
+module.exports.homelist = function(req, res){
+  renderHomepage(req, res);
 };
 
 var getLocationInfo = function (req, res, callback) {

@@ -1,5 +1,5 @@
 doctype html
-html
+html(ng-app='yelpbarkApp')
   head
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     title= title
@@ -27,6 +27,8 @@ html
           .col-xs-12
             small &copy; Rob Merrill 2016
 
+    script(src='/angular/angular.min.js')
+    script(src='/angular/yelpbarkApp.js')
     script(src='/javascripts/jquery-1.11.1.min.js')
     script(src='/bootstrap/js/bootstrap.min.js')
     script(src='/javascripts/validation.js')
