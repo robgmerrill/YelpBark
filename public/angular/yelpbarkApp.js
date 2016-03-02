@@ -69,7 +69,17 @@ var locationListCtrl = function ($scope) {
     }]};
     };
   
+var ratingStars = function() {
+  return {
+    scope: {
+      thisRating: '=rating'
+    },
+    templateUrl: '/angular/rating-stars.html'
+  };
+};
+
 angular
   .module('yelpbarkApp')
   .controller('locationListCtrl', locationListCtrl)
   .filter('formatDistance', formatDistance)
+  .directive('ratingStars', ratingStars)
