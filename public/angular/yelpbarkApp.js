@@ -26,24 +26,24 @@ var locationListCtrl = function ($scope) {
   $scope.data = {
     locations: [{
       name: 'Fremont Brewery',
-      address: '125 High Street, Reading, RG6 1PS',
-      rating: 3,
+      address: '3409 Woodland Park Ave N, Seattle, WA',
+      rating: 4,
       facilities: ['Indoor', 'Outdoor', 'Water', 'Treats'],
       distance: '0.296456',
       _id: '5370a35f2536f6785f8dfb6a'
     },{
-      name: 'Costy',
-      address: '125 High Street, Reading, RG6 1PS',
-      rating: 5,
-      facilities: ['Hot drinks', 'Food', 'Alcoholic drinks'],
+      name: 'Seward Park',
+      address: '5900 Lake Washington, Seattle, WA',
+      rating: 4,
+      facilities: ['Park', 'Outdoors'],
       distance: '0.7865456',
       _id: '5370a35f2536f6785f8dfb6a'
     },{
-      name: 'Cafe Hero',
-      address: '125 High Street, Reading, RG6 1PS',
-      rating: 0,
-      facilities: ['Hot drinks', 'Food', 'Premium wifi'],
-      distance: '0.94561236',
+      name: 'Marymoore Dog Park',
+      address: 'Redmond, WA',
+      rating: 5,
+      facilities: ['Dog Park', 'Off Leash', 'Outside'],
+      distance: '25.4',
       _id: '5370a35f2536f6785f8dfb6a'
     },{
       name: 'Starcups',
