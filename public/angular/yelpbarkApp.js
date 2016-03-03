@@ -22,52 +22,17 @@ var formatDistance = function () {
 };
 };
 
-var locationListCtrl = function ($scope) {
-  $scope.data = {
-    locations: [{
-      name: 'Fremont Brewery',
-      address: '3409 Woodland Park Ave N, Seattle, WA',
-      rating: 4,
-      facilities: ['Indoor', 'Outdoor', 'Water', 'Treats'],
-      distance: '0.296456',
-      _id: '5370a35f2536f6785f8dfb6a'
-    },{
-      name: 'Seward Park',
-      address: '5900 Lake Washington, Seattle, WA',
-      rating: 4,
-      facilities: ['Park', 'Outdoors'],
-      distance: '0.7865456',
-      _id: '5370a35f2536f6785f8dfb6a'
-    },{
-      name: 'Marymoore Dog Park',
-      address: 'Redmond, WA',
-      rating: 5,
-      facilities: ['Dog Park', 'Off Leash', 'Outside'],
-      distance: '25.4',
-      _id: '5370a35f2536f6785f8dfb6a'
-    },{
-      name: 'Starcups',
-      address: '125 High Street, Reading, RG6 1PS',
-      rating: 1,
-      facilities: ['Hot drinks', 'Food', 'Cold drinks'],
-      distance: '1.06548',
-      _id: '5370a35f2536f6785f8dfb6a'
-    },{
-      name: 'Simon\'s cafe',
-      address: '125 High Street, Reading, RG6 1PS',
-      rating: 3,
-      facilities: ['Hot drinks', 'Food', 'Premium wifi'],
-      distance: '2.3654',
-      _id: '5370a35f2536f6785f8dfb6a'
-    },{
-      name: 'Sally\'s pub',
-      address: '125 High Street, Reading, RG6 1PS',
-      rating: 5,
-      facilities: ['Hot drinks', 'Food', 'Alcoholic drinks'],
-      distance: '4.213654',
-      _id: '5370a35f2536f6785f8dfb6a'
-    }]};
-    };
+
+
+var locationListCtrl = function ($scope, yelpbarkData) {
+  yelpbarkData
+    .success(function(data) {
+      $scope.data = { locations: data };
+    })
+    .error(function (e) {
+      console.log (e);
+    });
+};
   
 var ratingStars = function() {
   return {
@@ -78,8 +43,42 @@ var ratingStars = function() {
   };
 };
 
+var yelpbarkData = function($http) {
+  return $http.get('/api/locations?lng=-122.332071&lat=47.606209&maxDistance=200000');
+  // return [{
+  //     name: 'Fremont Brewery',
+  //     address: '3409 Woodland Park Ave N, Seattle, WA',
+  //     rating: 4,
+  //     facilities: ['Indoor', 'Outdoor', 'Water', 'Treats', 'Alcohol'],
+  //     distance: '5.696456',
+  //     _id: '5370a35f2536f6785f8dfb6a'
+  //   },{
+  //     name: 'Seward Park',
+  //     address: '5900 Lake Washington, Seattle, WA',
+  //     rating: 4,
+  //     facilities: ['Park', 'Outdoors'],
+  //     distance: '01.5865456',
+  //     _id: '5370a35f2536f6785f8dfb6a'
+  //   },{
+  //     name: 'Marymoore Dog Park',
+  //     address: 'Redmond, WA',
+  //     rating: 5,
+  //     facilities: ['Dog Park', 'Off Leash', 'Outside'],
+  //     distance: '25.4',
+  //     _id: '5370a35f2536f6785f8dfb6a'
+  //   },{
+  //     name: 'Genesee Dog Park',
+  //     address: '4599 S Genesee St, Seattle, WA',
+  //     rating: 3,
+  //     facilities: ['Dog Park', 'Off Leash', 'Outside'],
+  //     distance: '2.26548',
+  //     _id: '5370a35f2536f6785f8dfb6a'
+  // }];
+};
+
 angular
   .module('yelpbarkApp')
   .controller('locationListCtrl', locationListCtrl)
   .filter('formatDistance', formatDistance)
   .directive('ratingStars', ratingStars)
+  .service('yelpbarkData', yelpbarkData)
