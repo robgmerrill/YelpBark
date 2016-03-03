@@ -5,6 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 require('./app_api/models/db');
+var uglifyJs = require('uglify-js');
+var fs = require('fs');
 
 var routes = require('./app_server/routes/index');
 var routesApi = require('./app_api/routes/index');
@@ -15,6 +17,24 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'app_server', 'views'));
 app.set('view engine', 'jade');
+
+var appClientFiles = [
+  'app_client/app.js',
+  'app_client/home/home.controller.js',
+  'app_client/common/services/geolocation.service.js',
+  'app_client/common/services/yelpbarkData.service.js',
+  'app_client/common/filters/formatDistance.filter.js',
+  'app_client/common/directives/ratingStars/ratingStars.directive.js'
+];
+var uglified = uglifyJs.minify(appClientFiles, { compress : false });
+
+fs.writeFile('public/angular/yelpbark.min.js', uglified.code, function (err){
+  if(err) {
+    console.log(err);
+  } else {
+    console.log("Script generated and saved:", 'yelpbark.min.js');
+  }
+});
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

@@ -4,6 +4,7 @@ angular
   .module('yelpbarkApp')
   .service('yelpbarkData', yelpbarkData);
 
+yelpbarkData.$inject = ['$http'];
 function yelpbarkData ($http) {
   var locationByCoords = function (lat, lng) {
     return $http.get('/api/locations?lng=' + lng + '&lat=' + lat + '&maxDistance=2000000000000000000000000000000000000000000000000000000000000000000000000000');

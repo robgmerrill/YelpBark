@@ -14,7 +14,8 @@
     "mongoose": "^4.4.5",
     "morgan": "~1.6.1",
     "request": "^2.69.0",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "uglify-js": "^2.6.2"
   },
   "engines": {
     "node": "~4.2.3",

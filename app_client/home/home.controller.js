@@ -4,6 +4,7 @@ angular
   .module('yelpbarkApp')
   .controller('homeCtrl', homeCtrl);
 
+  homeCtrl.$inject = ['$scope', 'yelpbarkData', 'geolocation'];
   function homeCtrl ($scope, yelpbarkData, geolocation) {
     var vm = this;
     vm.pageHeader = {
