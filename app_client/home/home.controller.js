@@ -1,3 +1,5 @@
+(function() {
+
 angular
   .module('yelpbarkApp')
   .controller('homeCtrl', homeCtrl);
@@ -42,6 +44,6 @@ angular
   geolocation.getPosition(vm.getData,vm.showError,vm.noGeo);
 };
 
-
+})();
 
   

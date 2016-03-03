@@ -1,3 +1,5 @@
+(function() {
+
 angular
   .module('yelpbarkApp')
   .service('yelpbarkData', yelpbarkData);
@@ -10,3 +12,5 @@ function yelpbarkData ($http) {
     locationByCoords : locationByCoords
   };
 }
+
+})();

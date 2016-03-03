@@ -1,3 +1,5 @@
+(function() {
+
 angular
   .module('yelpbarkApp')
   .service('geolocation', geolocation);
@@ -16,3 +18,5 @@ function geolocation () {
     getPosition : getPosition
   };
 };
+
+})();

@@ -1,3 +1,5 @@
+(function() {
+
 angular.module('yelpbarkApp', ['ngRoute']);
 
 function config($routeProvider) {
@@ -13,4 +15,6 @@ function config($routeProvider) {
 
 angular
   .module('yelpbarkApp')
-  .config(['$routeProvider', config])
+  .config(['$routeProvider', config]);
+
+})();
