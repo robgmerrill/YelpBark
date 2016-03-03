@@ -45,7 +45,7 @@ var ratingStars = function() {
 };
 
 var yelpbarkData = function($http) {
-  return $http.get('/api/locations?lng=-122.332071&lat=47.606209&maxDistance=200000000000000000');
+  return $http.get('/api/locations?lng=-122.280437&lat=47.536564&maxDistance=20000000000000');
   // return [{
   //     name: 'Fremont Brewery',
   //     address: '3409 Woodland Park Ave N, Seattle, WA',
