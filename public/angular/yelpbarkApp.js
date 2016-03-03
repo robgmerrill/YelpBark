@@ -22,17 +22,50 @@ var formatDistance = function () {
   };
 };
 
+var geolocation = function () {
+  var getPosition = function (cbSuccess, cbError, cbNoGeo) {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(cbSuccess, cbError);
+    }
+    else {
+      cbNoGeo();
+    }
+  };
+  return {
+    getPosition : getPosition
+  };
+};
 
+var locationListCtrl = function ($scope, yelpbarkData, geolocation) {
+  $scope.message = "Checking your location";
 
+  $scope.getData = function (position) {
+    var lat = position.coords.latitude,
+        lng = position.coords.longitude;
+    $scope.message = "Searching for nearby places";
+    yelpbarkData.locationByCoords(lat, lng)
+      .success(function(data) {
+        $scope.message = data.length > 0 ? "" : "No locations found nearby";
+        $scope.data = { locations: data };
+      })
+      .error(function (e) {
+        $scope.message = "Sorry, something's gone wrong, please try again later";
+      });
+  };
 
-var locationListCtrl = function ($scope, yelpbarkData) {
-  yelpbarkData
-    .success(function(data) {
-      $scope.data = { locations: data };
-    })
-    .error(function (e) {
-      console.log (e);
+  $scope.showError = function (error) {
+    $scope.$apply(function() {
+      $scope.message = error.message;
     });
+  };
+
+  $scope.noGeo = function () {
+    $scope.$apply(function() {
+      $scope.message = "Geolocation is not supported by this browser.";
+    });
+  };
+
+  geolocation.getPosition($scope.getData,$scope.showError,$scope.noGeo);
 };
   
 var ratingStars = function() {
@@ -44,8 +77,13 @@ var ratingStars = function() {
   };
 };
 
-var yelpbarkData = function($http) {
-  return $http.get('/api/locations?lng=-122.280437&lat=47.536564&maxDistance=20000000000000');
+var yelpbarkData = function ($http) {
+  var locationByCoords = function (lat, lng) {
+    return $http.get('/api/locations?lng=' + lng + '&lat=' + lat + '&maxDistance=2000000000000000000000000000000000000000000000000000');
+  };
+  return {
+    locationByCoords : locationByCoords
+  };
   // return [{
   //     name: 'Fremont Brewery',
   //     address: '3409 Woodland Park Ave N, Seattle, WA',
@@ -83,3 +121,4 @@ angular
   .filter('formatDistance', formatDistance)
   .directive('ratingStars', ratingStars)
   .service('yelpbarkData', yelpbarkData)
+  .service('geolocation', geolocation);
