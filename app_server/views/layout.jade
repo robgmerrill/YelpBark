@@ -20,7 +20,8 @@ html(ng-app='yelpbarkApp')
               a(href='/about/') About 
 
     .container
-      block content
+      div(ng-view)
+        block content
 
       footer
         .row
@@ -28,6 +29,7 @@ html(ng-app='yelpbarkApp')
             small &copy; Rob Merrill 2016
 
     script(src='/angular/angular.min.js')
+    script(src='/lib/angular-route.min.js')
     script(src='/app.js')
     script(src='/javascripts/jquery-1.11.1.min.js')
     script(src='/bootstrap/js/bootstrap.min.js')
