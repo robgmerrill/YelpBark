@@ -5,3 +5,7 @@ module.exports.about = function(req, res) {
     content: 'YelpBark was created to help people find the best placed to bring their four legged friends!' 
   });
 };
+
+module.exports.angularApp = function(req, res) {
+  res.render('layout', { title: 'YelpBark'});
+};
