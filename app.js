@@ -21,9 +21,12 @@ app.set('view engine', 'jade');
 var appClientFiles = [
   'app_client/app.js',
   'app_client/home/home.controller.js',
+  'app_client/about/about.controller.js',
+  'app_client/locationDetail/locationDetail.controller.js',
   'app_client/common/services/geolocation.service.js',
   'app_client/common/services/yelpbarkData.service.js',
   'app_client/common/filters/formatDistance.filter.js',
+  'app_client/common/filters/addHtmlLineBreaks.filter.js',
   'app_client/common/directives/navigation/navigation.directive.js',
   'app_client/common/directives/footerGeneric/footerGeneric.directive.js',
   'app_client/common/directives/pageHeader/pageHeader.directive.js',
