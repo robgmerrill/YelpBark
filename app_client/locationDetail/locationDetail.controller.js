@@ -4,8 +4,8 @@
     .module('yelpbarkApp')
     .controller('locationDetailCtrl', locationDetailCtrl);
 
-  locationDetailCtrl.$inject = ['$routeParams', 'yelpbarkData'];
-  function locationDetailCtrl ($routeParams, yelpbarkData) {
+  locationDetailCtrl.$inject = ['$routeParams', '$modal', 'yelpbarkData'];
+  function locationDetailCtrl ($routeParams, $modal, yelpbarkData) {
     var vm = this;
     vm.locationid = $routeParams.locationid;
 
@@ -19,6 +19,12 @@
       .error(function (e) {
         console.log(e);
       });
+      vm.popupReviewForm = function () {
+        var modalInstance = $modal.open({
+          templateUrl: '/reviewModal/reviewModal.view.html',
+          controller: 'reviewModalCtrl as vm'
+        })
+      };
   }
 
 })();

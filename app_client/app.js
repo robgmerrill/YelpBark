@@ -1,6 +1,6 @@
 (function () {
 
-  angular.module('yelpbarkApp', ['ngRoute']);
+  angular.module('yelpbarkApp', ['ngRoute', 'ngSanitize', 'ui.bootstrap']);
 
   function config ($routeProvider, $locationProvider) {
     $routeProvider

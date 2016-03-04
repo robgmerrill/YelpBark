@@ -23,6 +23,7 @@ var appClientFiles = [
   'app_client/home/home.controller.js',
   'app_client/about/about.controller.js',
   'app_client/locationDetail/locationDetail.controller.js',
+  'app_client/reviewModal/reviewModal.controller.js',
   'app_client/common/services/geolocation.service.js',
   'app_client/common/services/yelpbarkData.service.js',
   'app_client/common/filters/formatDistance.filter.js',
