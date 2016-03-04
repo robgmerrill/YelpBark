@@ -4,16 +4,22 @@
     .module('yelpbarkApp')
     .controller('locationDetailCtrl', locationDetailCtrl);
 
-  locationDetailCtrl.$inject = ['$routeParams'];
-  function locationDetailCtrl ($routeParams) {
+  locationDetailCtrl.$inject = ['$routeParams', 'yelpbarkData'];
+  function locationDetailCtrl ($routeParams, yelpbarkData) {
     var vm = this;
     vm.locationid = $routeParams.locationid;
 
+    yelpbarkData.locationById(vm.locationid)
+      .success(function(data) {
+        vm.data = { location: data };
         vm.pageHeader = {
-          title: vm.locationid
+          title: vm.data.location.name
         };
-      }
-      
+      })
+      .error(function (e) {
+        console.log(e);
+      });
+  }
 
 })();
 
