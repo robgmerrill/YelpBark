@@ -7,7 +7,7 @@ angular
 yelpbarkData.$inject = ['$http'];
 function yelpbarkData ($http) {
   var locationByCoords = function (lat, lng) {
-    return $http.get('/api/locations?lng=' + lng + '&lat=' + lat + '&maxDistance=200000');
+    return $http.get('/api/locations?lng=' + lng + '&lat=' + lat + '&maxDistance=200000000000');
   };
 
   var locationById = function(locationid) {
